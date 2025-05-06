@@ -1,0 +1,32 @@
+{
+    "name": "Tesseract TrajOpt",
+    "build": {
+        "context": "..",
+        "dockerfile": "../Dockerfile"
+    },
+    // Settings for X11 forwarding and GPU support
+    "runArgs": [
+        "--gpus=all",
+        "--network=host",
+        "-e",
+        "DISPLAY=${localEnv:DISPLAY}",
+        "-v",
+        "/tmp/.X11-unix:/tmp/.X11-unix"
+    ],
+    "remoteUser": "gmruser",
+    "remoteEnv": {
+        "DISPLAY": "${localEnv:DISPLAY}",
+        "QT_X11_NO_MITSHM": "1"
+    },
+    // Basic extensions for C++ development
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-python.python",
+                "twxs.cmake",
+                "ms-vscode.cmake-tools"
+            ]
+        }
+    }
+}
