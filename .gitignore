@@ -1,0 +1,9 @@
+# Ignore build and install directories
+build/
+install/
+
+.vscode/
+.clang-format
+
+# Ignore output directory
+output/
