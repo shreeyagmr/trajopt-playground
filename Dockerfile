@@ -48,6 +48,10 @@ RUN sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable
     apt update && \
     apt install -y libgz-rendering7-dev libgz-common5-dev libgz-common5-profiler-dev
 
+# Nlohmann
+RUN git clone --branch v3.11.2 --depth 1 https://github.com/nlohmann/json.git && \
+    cd json && cmake . && make -j$(nproc) && make install
+
 # Create a non-root user
 ARG USERNAME=gmruser
 ARG USER_UID=1000
