@@ -1,0 +1,10 @@
+contact_manager_plugins:
+  search_paths:
+    - /home/gmruser/deps/tesseract_ws/install/tesseract_kinematics/lib
+  search_libraries:
+    - tesseract_collision_bullet_factories
+  discrete_plugins:
+    default: BulletDiscreteBVHManager
+    plugins:
+      BulletDiscreteBVHManager:
+        class: BulletDiscreteBVHManagerFactory

@@ -1,0 +1,30 @@
+<robot name="fanuc_m710" version="1.0.0">
+    <group name="arm">
+        <chain base_link="y_prismatic" tip_link="tool0"/>
+    </group>
+    <group_state name="home" group="arm">
+        <joint name="joint_6" value="0"/>
+        <joint name="joint_4" value="0"/>
+        <joint name="joint_5" value="0"/>
+        <joint name="joint_3" value="0"/>
+        <joint name="joint_1" value="0"/>
+        <joint name="joint_2" value="0"/>
+        <joint name="extender_joint" value="0"/>
+    </group_state>
+    <group_tcps group="arm">
+        <tcp name="tcp0" xyz="0 0 0" wxyz="1 0 0 0"/>
+    </group_tcps>
+    <kinematics_plugin_config filename="/workspaces/trajopt-playground/config/robots/fanuc_m710/kinematics_plugin_config.yaml"/>
+    <contact_managers_plugin_config filename="/workspaces/trajopt-playground/config/robots/fanuc_m710/contact_manager_config.yaml"/>
+    <group_opw group="arm" a1="0.14999999999999999" a2="0.17000000000000001" b="0" c1="0.56499999999999995" c2="1.1499999999999999" c3="1.2949999999999999" c4="0.17499999999999999" offsets="0.000000 0.000000 1.570700 0.000000 0.000000 3.141500" sign_corrections="1 1 -1 -1 -1 -1"/>
+    <disable_collisions link1="link_3" link2="link_6" reason="Never"/>
+    <disable_collisions link1="link_3" link2="link_5" reason="Never"/>
+    <disable_collisions link1="link_1" link2="y_prismatic" reason="Never"/>
+    <disable_collisions link1="link_1" link2="link_2" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="link_1" reason="Adjacent"/>
+    <disable_collisions link1="y_prismatic" link2="base_link" reason="Adjacent"/>
+    <disable_collisions link1="link_3" link2="link_4" reason="Adjacent"/>
+    <disable_collisions link1="link_4" link2="link_5" reason="Adjacent"/>
+    <disable_collisions link1="link_2" link2="link_3" reason="Adjacent"/>
+    <disable_collisions link1="link_5" link2="link_6" reason="Adjacent"/>
+</robot>
